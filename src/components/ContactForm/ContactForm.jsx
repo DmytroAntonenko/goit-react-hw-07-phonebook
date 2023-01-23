@@ -2,8 +2,9 @@ import { useState } from 'react';
 import shortid from 'shortid';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
 
 import css from './ContactForm.module.css';
 
@@ -12,8 +13,9 @@ const ContactForm = () => {
   const [number, setNumber] = useState('');
   const nameInputId = shortid.generate();
   const numberInputId = shortid.generate();
-  const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  
 
   const handleChange = event => {
     const {name, value} = event.currentTarget;

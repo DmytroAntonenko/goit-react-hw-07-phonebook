@@ -33,13 +33,14 @@ const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const form = event.currentTarget.elements;
+    // const form = event.currentTarget.elements;
     const isExistContact = contacts.find((contact) => name === contact.name);
     if (isExistContact) {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(addContact(form.name.value, form.number.value));
+    const newContact = { name, number };
+    dispatch(addContact(newContact));
     setName('');
     setNumber('');
   };
